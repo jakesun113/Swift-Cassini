@@ -13,7 +13,7 @@
 		54B05F7821A3BC87005470AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54B05F7621A3BC87005470AB /* LaunchScreen.storyboard */; };
 		54B05F8121A3BD92005470AB /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B05F8021A3BD92005470AB /* ImageViewController.swift */; };
 		54B05F8321A3C404005470AB /* DemoURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B05F8221A3C403005470AB /* DemoURLs.swift */; };
-		54B05F8521A3C6BE005470AB /* oval.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 54B05F8421A3C6BE005470AB /* oval.jpg */; };
+		54B05F8721A3CA2D005470AB /* oval.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 54B05F8621A3CA2D005470AB /* oval.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		54B05F7921A3BC87005470AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54B05F8021A3BD92005470AB /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		54B05F8221A3C403005470AB /* DemoURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoURLs.swift; sourceTree = "<group>"; };
-		54B05F8421A3C6BE005470AB /* oval.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oval.jpg; sourceTree = "<group>"; };
+		54B05F8621A3CA2D005470AB /* oval.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = oval.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 				54B05F8021A3BD92005470AB /* ImageViewController.swift */,
 				54B05F8221A3C403005470AB /* DemoURLs.swift */,
 				54B05F7121A3BC85005470AB /* Main.storyboard */,
-				54B05F8421A3C6BE005470AB /* oval.jpg */,
+				54B05F8621A3CA2D005470AB /* oval.jpg */,
 				54B05F7F21A3BCC9005470AB /* Supporting Files */,
 				54B05F7921A3BC87005470AB /* Info.plist */,
 			);
@@ -137,9 +137,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				54B05F7821A3BC87005470AB /* LaunchScreen.storyboard in Resources */,
-				54B05F8521A3C6BE005470AB /* oval.jpg in Resources */,
 				54B05F7521A3BC87005470AB /* Assets.xcassets in Resources */,
 				54B05F7321A3BC85005470AB /* Main.storyboard in Resources */,
+				54B05F8721A3CA2D005470AB /* oval.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
