@@ -13,12 +13,25 @@ class ImageViewController: UIViewController {
     //model
     var imageURL: URL? {
         didSet {
-            imageView.image = nil
+            image = nil
             //only fetch image when this view is on the screen
             if view.window != nil {
                 fetchImage()
             }
             
+        }
+    }
+    
+    private var image: UIImage? {
+        get {
+            return imageView.image
+        }
+        
+        set {
+            imageView.image = newValue
+            //once adding the iamge, set image size and scrollView contentSize
+            imageView.sizeToFit()
+            scrollView.contentSize = imageView.frame.size
         }
     }
     
@@ -29,7 +42,13 @@ class ImageViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView! {
+        didSet {
+            scrollView.addSubview(imageView)
+        }
+    }
+    
+    var imageView = UIImageView()
     
     
     private func fetchImage() {
@@ -38,7 +57,8 @@ class ImageViewController: UIViewController {
             
             let urlContents = try? Data(contentsOf: url)
             if let imageData = urlContents {
-                imageView.image = UIImage(data: imageData)
+                image = UIImage(data: imageData)
+ 
             }
             
         }
