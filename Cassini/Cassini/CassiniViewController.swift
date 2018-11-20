@@ -21,7 +21,7 @@ class CassiniViewController: UIViewController {
         
         if let identifier = segue.identifier {
             if let url = DemoURLs.NASA[identifier] {
-                if let imageVC = segue.destination as? ImageViewController {
+                if let imageVC = segue.destination.contents as? ImageViewController {
                     //"prepare" function happens before outlet is set
                     //so the url is nil
                     imageVC.imageURL = url
@@ -32,4 +32,16 @@ class CassiniViewController: UIViewController {
     }
  
 
+}
+
+//contents is the NavigationController of itself
+extension UIViewController {
+    var contents: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController ?? self
+        }
+        else {
+            return self
+        }
+    }
 }

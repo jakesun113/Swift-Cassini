@@ -33,6 +33,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.sizeToFit()
             //scrollView could be nil, so use question mark
             scrollView?.contentSize = imageView.frame.size
+            //stop the spinner when the image is set
+            spinner?.stopAnimating()
         }
     }
     
@@ -42,6 +44,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             fetchImage()
         }
     }
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
@@ -65,6 +69,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     private func fetchImage() {
         
         if let url = imageURL {
+            //turn on the spinner
+            spinner.startAnimating()
             //use multithreading to put fetching images to the background queue
             //also need to consider, when user cancel fetching images in the middle of
             //this function, should cancel the action (remove from the heap) -> use "weak self"
