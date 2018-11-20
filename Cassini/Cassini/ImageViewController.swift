@@ -31,7 +31,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.image = newValue
             //once adding the iamge, set image size and scrollView contentSize
             imageView.sizeToFit()
-            scrollView.contentSize = imageView.frame.size
+            //scrollView could be nil, so use question mark
+            scrollView?.contentSize = imageView.frame.size
         }
     }
     
@@ -64,11 +65,18 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     private func fetchImage() {
         
         if let url = imageURL {
-            
-            let urlContents = try? Data(contentsOf: url)
-            if let imageData = urlContents {
-                image = UIImage(data: imageData)
- 
+            //use multithreading to put fetching images to the background queue
+            //also need to consider, when user cancel fetching images in the middle of
+            //this function, should cancel the action (remove from the heap) -> use "weak self"
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                let urlContents = try? Data(contentsOf: url)
+                //Anything related to the UI setting can only be set to the "main" queue
+                DispatchQueue.main.async {
+                    //also need to check whether the returned url equals to the url I want
+                    if let imageData = urlContents, url == self?.imageURL {
+                        self?.image = UIImage(data: imageData)
+                    }
+                }
             }
             
         }
@@ -77,8 +85,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if imageURL == nil {
-            imageURL = DemoURLs.stanford
-        }
+        //        if imageURL == nil {
+        //            imageURL = DemoURLs.stanford
+        //        }
     }
 }
